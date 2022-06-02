@@ -3,3 +3,4 @@ psycopg2
 SQLAlchemy
 python-dotenv
 flask_sqlalchemy
+gunicorn
