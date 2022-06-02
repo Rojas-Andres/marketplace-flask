@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+{% block title %}
+Productos
+{% endblock %}
+{% block body%}
+
+<a href="/" class="btn btn-primary">Regresar al home</a>
+
+<div class="container">
+    <table id="tabla" class="table table-striped" >
+        <thead>
+            <tr>
+                <th>Codigo Producto</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <td>Eliminar</td>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for llave,valor in prds.items() %}
+                <tr>
+                    <td>{{ llave }}</td>
+                    <td>{{ valor.nombre }}</td>
+                    <td>{{ valor.precio }}</td>
+                    <td>{{ valor.cantidad }}</td>
+                    <td><a href="/carrito/eliminar/{{llave}}">Eliminar</a></td>
+                    <td>{{ valor.total }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td> Total a pagar</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{total_pagar}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/comprar" class="btn btn-primary">Comprar</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('#tabla').DataTable();
+    });
+</script>
+{% endblock %}

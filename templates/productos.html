@@ -1,0 +1,49 @@
+{% extends 'base.html' %} 
+{% block title %}
+Productos
+{% endblock %}
+{% block body%}
+{% if mensaje|length > 1 %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{mensaje}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<a href="/" class="btn btn-primary">Regresar al home</a>
+
+<div class="container">
+    <table id="tabla" class="table table-striped" >
+        <thead>
+            <tr>
+                <th>Codigo Producto</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Precio</th>
+                <th>Descripcion completa</th>
+                <th>Añadir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in prds %}
+                <tr>
+                    <td>{{ i.codigo_producto }}</td>
+                    <td>{{ i.nombre }}</td>
+                    <td>{{ i.marca }}</td>
+                    <td>{{ i.precio }}</td>
+                    <th><a href="/producto/{{i.id_producto}}">Ver producto</a></th>
+                    <th><a href="/carrito/adicionar/{{i.id_producto}}">Añadir al carrito</a></th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('#tabla').DataTable();
+    });
+
+</script>
+{% endblock %}

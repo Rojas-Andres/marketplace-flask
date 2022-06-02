@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% block title %}
+Productos
+{% endblock %}
+{% block body%}
+
+<a href="/" class="btn btn-primary">Regresar al home</a>
+<div class="row">
+    <h3>Este es el producto</h3>
+    <div class="col-md-4 offset-md-4" >
+      <div class="card card-body">
+
+        <form method="POST" action="/carrito/adicionar" >
+            <p name="id_producto" id="id_producto">Id : {{prd.id_producto}}</p>
+            <input  type="hidden" id="id_producto" name="id_producto" value="{{prd.id_producto}}">
+            <p>Nombre : {{prd.nombre}}</p>
+            <p>Marca : {{prd.marca}}</p>
+            <p>Referencia : {{prd.referencia}}</p>
+            <p>Precio : {{prd.precio}}</p>
+            <span>Cantidad del producto</span>
+            <input type="number" name="cantidad_prd" id="cantidad_prd">
+            <button class="btn btn-primary" type="submit">Añadir carrito</button>
+        </form>
+      </div>
+    </div>
+</div>
+<br>
+<br>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

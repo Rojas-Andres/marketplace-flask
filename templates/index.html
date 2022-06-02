@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% block title %}
+Pagina de incio
+{% endblock %}
+
+{% block body%}
+    {% if mensaje|length > 1 %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{mensaje}}</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    <br/>
+    <br/>
+    <a href="/productos" class="btn btn-primary"> Ver todos los productos </a>
+
+    <br/>
+    <br/>
+    <a href="/carrito" class="btn btn-primary"> Ver carrito </a>
+    <br/>
+    <br/>
+{% endblock %}
